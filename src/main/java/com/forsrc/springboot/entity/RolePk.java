@@ -2,7 +2,13 @@ package com.forsrc.springboot.entity;
 
 import java.io.Serializable;
 
+
 public class RolePk implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6742714080763068577L;
 
 	private String username;
 	private String name;

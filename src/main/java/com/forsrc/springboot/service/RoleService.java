@@ -15,4 +15,6 @@ public interface RoleService extends BaseService<Role, RolePk> {
 	List<Role> findByUsername(String username);
 
 	void deleteByUsername(String username);
+
+	public List<Role> getByUsername(String username);
 }

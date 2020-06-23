@@ -1,0 +1,30 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.forsrc.springboot.dao.mapper.RoleMapper">
+
+    <resultMap id="resultMap" type="com.forsrc.springboot.entity.Role">
+        <id property="username" column="username"/>
+        <id property="role" column="role"/>
+        <result property="username" column="username"/>
+        <result property="name" column="name" />
+        <result property="createOn" column="create_on" jdbcType="DATE"/>
+        <result property="updateOn" column="update_on" jdbcType="DATE"/>
+        <result property="version" column="version" />
+    </resultMap>
+
+    <select id="getByUsername" resultType="com.forsrc.springboot.entity.Role"
+        resultMap="resultMap">
+
+        SELECT
+            T.*
+        FROM
+            role T
+        WHERE
+            T.username = #{username}
+        ORDER BY T.name ASC
+        LIMIT 100
+    </select>
+
+
+</mapper>

@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.forsrc.springboot.entity.Role;
-import com.forsrc.springboot.entity.User;
 import com.forsrc.springboot.service.RoleService;
-import com.forsrc.springboot.service.UserService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -31,6 +29,12 @@ public class RoleController {
 	private Flux<List<Role>> get(@PathVariable String username) {
 
 		return Flux.just(this.roleService.findByUsername(username));
+	}
+
+	@GetMapping("/test/{username}")
+	private Flux<List<Role>> getByUsername(@PathVariable String username) {
+
+		return Flux.just(this.roleService.getByUsername(username));
 	}
 
 	@GetMapping
@@ -54,5 +58,6 @@ public class RoleController {
 		this.roleService.deleteByUsername(username);
 		return Mono.just(String.format("delete %s", username));
 	}
+
 
 }
